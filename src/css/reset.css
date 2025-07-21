@@ -217,20 +217,16 @@ body {
   box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
 }
 
-.feedback-form button[type='submit']:hover,
-.feedback-form button[type='submit']:focus {
-  background-color: #357abd;
-  box-shadow: 0 6px 12px rgba(53, 122, 189, 0.6);
-}
-
-@media (max-width: 480px) {
-  .feedback-form {
-    padding: 20px 15px;
-  }
-  .feedback-form label {
-    font-size: 1rem;
-  }
-  .feedback-form button[type='submit'] {
-    font-size: 1rem;
-  }
+.feetback-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
 }
