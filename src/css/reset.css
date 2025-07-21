@@ -73,95 +73,164 @@ img {
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #f0f0f0;
+  background-color: #f5f7fa;
+  font-family: 'Inter', sans-serif;
+  color: #1e1e1e;
   margin: 0;
-  padding: 24px;
+  padding: 40px 24px;
+  display: flex;
+  justify-content: center;
 }
 
 .gallery {
-  list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
+  gap: 28px;
+  max-width: 1080px;
+  width: 100%;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .gallery-item {
-  border-radius: 8px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(34, 60, 80, 0.12);
   overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item:hover,
+.gallery-item:focus-within {
+  box-shadow: 0px 12px 28px rgba(34, 60, 80, 0.18);
+  transform: translateY(-4px);
+}
+
+.gallery-link {
+  display: block;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 .gallery-image {
   width: 100%;
-  height: auto;
+  height: 220px;
+  object-fit: cover;
   display: block;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
+  border-radius: 12px 12px 0 0;
 }
 
-.gallery-image:hover {
+.gallery-item:hover .gallery-image,
+.gallery-item:focus-within .gallery-image {
   transform: scale(1.05);
 }
 
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 8px;
-  width: 410px;
-  transform: translate(-50%, -50%);
-  height: 324px;
-  background-color: #fff;
-  padding: 72px 16px 24px 16px;
-  padding: 24px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.sl-caption {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #222222;
+  text-align: center;
+  padding: 14px 20px;
+  background-color: #ffffffdd;
+  border-radius: 0 0 12px 12px;
+  max-width: 100%;
+  box-sizing: border-box;
+  user-select: none;
 }
 
-.feetback-area {
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .gallery-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .gallery-image {
+    height: 160px;
+  }
+}
+
+.feedback-form {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  max-width: 420px;
   width: 100%;
-  margin-bottom: 16px;
-}
-
-.feetback-btn {
-  font-family: 'Montserrat', sans-serif;
+  padding: 30px 25px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 10px;
-  border-radius: 8px;
-  padding: 8px 16px;
-  width: 95px;
-  height: 40px;
-  background-color: #4e75ff;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #fff;
-}
-
-.feetback-btn:hover {
-  background-color: #6c8cff;
-}
-
-.feetback-email {
-  position: relative;
-  width: 360px;
-  height: 40px;
-}
-
-.feetback-text {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #2e2f42;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
-  gap: 8px;
+  gap: 24px;
+}
+
+.feedback-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #333333;
+}
+
+.feedback-form input[type='email'],
+.feedback-form textarea {
+  margin-top: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1.5px solid #cccccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+  font-family: inherit;
+  color: #222222;
+}
+
+.feedback-form input[type='email']:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
+}
+
+.feedback-form button[type='submit'] {
+  margin-top: 10px;
+  padding: 14px 0;
+  font-weight: 700;
+  font-size: 1.125rem;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+}
+
+.feedback-form button[type='submit']:hover,
+.feedback-form button[type='submit']:focus {
+  background-color: #357abd;
+  box-shadow: 0 6px 12px rgba(53, 122, 189, 0.6);
+}
+
+@media (max-width: 480px) {
+  .feedback-form {
+    padding: 20px 15px;
+  }
+  .feedback-form label {
+    font-size: 1rem;
+  }
+  .feedback-form button[type='submit'] {
+    font-size: 1rem;
+  }
 }
