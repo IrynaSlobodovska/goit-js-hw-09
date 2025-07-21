@@ -3,9 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import smallImage from './img/small-image.jpg';
 
-const img = document.createElement('img');
-img.src = smallImage;
-document.body.append(img);
+
 
 const images = [
   {
